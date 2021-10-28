@@ -152,11 +152,13 @@ public class ModificaCuentas implements Initializable {
                 if (Integer.parseInt(numero.getText()) == cuenta.getNumCuenta()) {
                     isValid = false;
                     numero.setStyle(redField);
+                    numero.setText("Cuenta ya existente");
                 }
             }
         } else { //Se ejecuta si el campo está "Número" vacío o No es un número.
             isValid = false;
             numero.setStyle(redField);
+            numero.setText("Debe introducir un número");
         }
 
 
@@ -164,10 +166,12 @@ public class ModificaCuentas implements Initializable {
         if (!isNumeric(titular.getText())) {
             isValid = false;
             titular.setStyle(redField);
+            titular.setText("Debe añadir una persona");
         }
         if(titular.getText().isEmpty()) { //Se ejecuta si el campo está "Titular" vacío.
             isValid = false;
             titular.setStyle(redField);
+            titular.setText("Debe añadir una persona");
         }
 
         //Se ejecuta si el campo "Fecha" NO está vacío.
@@ -177,11 +181,12 @@ public class ModificaCuentas implements Initializable {
         if (!validDate(fecha.getText())) {
             isValid = false;
             fecha.setStyle(redField);
-
+            fecha.setText("Introduzca una fecha válida");
         }
         if(fecha.getText().isEmpty()) { //Se ejecuta si el campo está "Fecha" vacío.
             isValid = false;
             fecha.setStyle(redField);
+            fecha.setText("Introduzca una fecha válida");
         }
 
         //Se ejecuta si el campo "Saldo" NO está vacío.
@@ -191,10 +196,12 @@ public class ModificaCuentas implements Initializable {
         if (isNumeric(saldo.getText())) {
             isValid = false;
             saldo.setStyle(redField);
+            saldo.setText("Introduzca un saldo numérico");
         }
         if(saldo.getText().isEmpty()) { //Se ejecuta si el campo está "Saldo" vacío.
             isValid = false;
             saldo.setStyle(redField);
+            saldo.setText("Introduzca un saldo numérico");
         }
 
         //Se ejecutara si el contenido de todos los campos de texto son correctos.
@@ -341,7 +348,7 @@ public class ModificaCuentas implements Initializable {
 
         //Crea los menús contextuales con sus opciones.
         ContextMenu menuAtras = new ContextMenu(new MenuItem("Atrás"), new MenuItem("Back"), new MenuItem("Derrière"), new MenuItem("Atrás"));
-        ContextMenu menuSiguiente = new ContextMenu(new MenuItem("Adelante"), new MenuItem("Next"), new MenuItem("Prochain"), new MenuItem("Seguinte"));
+        ContextMenu menuSiguiente = new ContextMenu(new MenuItem("Adelante"), new MenuItem("Next"), new MenuItem("Suivant"), new MenuItem("Seguinte"));
 
         menuSiguiente.setStyle("");
         //Agrega cada menú a su respectivo botón.
